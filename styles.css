@@ -1,0 +1,14 @@
+p {
+ color: black;
+}
+
+body {
+ font-family: Arial, sans-serif;
+ text-align: center;
+ margin-top: 50px;
+}
+
+#uhrzeit {
+ font-size: 2em;
+ color: #333;
+}
