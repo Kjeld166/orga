@@ -1,14 +1,66 @@
+/* Basis-Styling */
+
+@font-face {
+  font-family: 'DS-Digital';
+  src:  url('C:/Users/kjell/OneDrive/Desktop/Code/Orga/DS-DIGIT.TTF') format('truetype'),
+        url('C:/Users/kjell/OneDrive/Desktop/Code/Orga/DS-Digital-BoldItalic.woff') format('woff2'),
+        url('C:/Users/kjell/OneDrive/Desktop/Code/Orga/DS-Digital-BoldItalic.woff2') format('woff');
+
+}
+html, body {
+  height: 100%; /* Vollständige Höhe für html und body */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+
 p {
  color: black;
 }
 
+main {
+  padding: 50px;
+}
+
+h1 {
+  position: relative;
+  top:0px;
+  margin: 0px;
+  border-radius: 2px;
+  border-color: red;
+}
+
 body {
- font-family: Arial, sans-serif;
- text-align: center;
- margin-top: 50px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 0px;
+  position: relative; /* Ermöglicht absolute Positionierung im Header */
+}
+
+header {
+  position: relative; /* Setzt den Bezugspunkt für das absolut positionierte Icon */
 }
 
 #uhrzeit {
- font-size: 2em;
- color: #333;
+  font-family: 'DS-Digital', sans-serif;
+  font-size: 100px;
+  color: black;
+ 
 }
+
+/* Icon-Styling */
+.icon {
+  position: absolute;
+  top: 5px;  /* Abstand von oben */
+  left: -2px; /* Abstand von links */
+  width: 32px;  /* Größe des Icons */
+  height: 32px;
+}
+
+
