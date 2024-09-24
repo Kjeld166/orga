@@ -7,60 +7,109 @@
         url('fonts/DS-Digital-BoldItalic.woff') format('woff');
 }
 
-html, body {
-  height: 100%; /* Vollständige Höhe für html und body */
-  margin: 0;
+
+/* Farben Übersicht */
+
+:root {
+  --primary-color: #d6d6d6;
+  --secondary-color: #a1a1a1;
+  --text-color: #dfdfdf;
+  --link-color: rgb(132, 0, 255);
+  --background-color: #000000;
+  --uhr-border-color: #ffffff;
+}
+
+
+/* Struktur-Elemente */
+
+html {
+  height: 100%; 
   padding: 0;
+  background-color: var(--background-color);
 }
 
 header {
   position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-
-p {
- color: black;
-}
-
-main {
-  padding: 50px;
-}
-
-h1 {
-  position: relative;
-  top:0px;
-  margin: 0px;
-  border-radius: 2px;
-  border-color: red;
+  position: fixed;
+  top: 0px;
+  left: -2px;
+  
 }
 
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
   margin-top: 0px;
-  position: relative; /* Ermöglicht absolute Positionierung im Header */
+  position: relative; 
 }
 
-header {
-  position: relative; /* Setzt den Bezugspunkt für das absolut positionierte Icon */
+footer {
+  position: fixed;
+  left: 0; 
+  right: 0; 
+  bottom: 0px;
+  margin: 0px;
+  text-align: center;
+  color: var(--text-color);
 }
 
-#uhrzeit {
-  font-family: 'DS-Digital', sans-serif;
-  font-size: 100px;
-  color: black;
- 
+/* Text-Elemente */
+
+h1 {
+  color: var(--primary-color);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+  top:0px;
+  margin: 0px;
+}
+/* Uhr */ 
+
+  #uhrzeit {
+    margin-top: 40px;
+    font-family: 'DS-Digital', sans-serif;
+    font-size: 85px;
+    color: var(--primary-color);
+    border: solid;
+    border-color: var(--uhr-border-color);
+    border: 30px;
+    text-align: center;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+  }
+
+    .stunden {
+      color: green;
+    }
+
+    .minuten {
+      color: red;
+    }
+
+    .sekunden {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 50%;
+      border:solid;
+      border-color: var(--uhr-border-color);
+    }
+
+a {
+  color: var(--link-color);
 }
 
-/* Icon-Styling */
+p {
+ color: var(--text-color);
+}
+
 .icon {
   position: absolute;
-  top: 5px;  /* Abstand von oben */
-  left: -2px; /* Abstand von links */
-  width: 32px;  /* Größe des Icons */
+  top: 5px;  
+  left: -2px; 
+  width: 32px; 
   height: 32px;
+  
 }
 
 
