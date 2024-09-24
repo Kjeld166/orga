@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'DS-Digital';
-  src:  url('C:/Users/kjell/OneDrive/Desktop/Code/Orga/DS-DIGIT.TTF') format('truetype'),
-        url('C:/Users/kjell/OneDrive/Desktop/Code/Orga/DS-Digital-BoldItalic.woff') format('woff2'),
-        url('C:/Users/kjell/OneDrive/Desktop/Code/Orga/DS-Digital-BoldItalic.woff2') format('woff');
-
+  src:  url('fonts/DS-DIGIT.TTF') format('truetype'),
+        url('fonts/DS-Digital-BoldItalic.woff2') format('woff2'),
+        url('fonts/DS-Digital-BoldItalic.woff') format('woff');
 }
+
 html, body {
   height: 100%; /* Vollständige Höhe für html und body */
   margin: 0;
