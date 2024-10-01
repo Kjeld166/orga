@@ -21,7 +21,7 @@
     </header>
 
     <main>
-      <p class="Uhr" id="uhrzeit">Lädt...</p>
+      <p class="Uhr" id="uhrzeit">Laedt...</p>
     </main>
 
     <footer>
@@ -30,16 +30,19 @@
     
     <script>
       function updateUhrzeit() {
-        // Feste Zeit festlegen
-        let fixedTime = "22:88:88"; // Beispielzeit
-
-        // Uhrzeit in das HTML-Element einfügen (ohne zusätzliche Leerzeichen)
+        // Aktuelle Uhrzeit holen
+        const now = new Date();
+        let stunden = now.getHours().toString().padStart(2, '0'); // Stunden mit führender Null
+        let minuten = now.getMinutes().toString().padStart(2, '0'); // Minuten mit führender Null
+        let sekunden = now.getSeconds().toString().padStart(2, '0'); // Sekunden mit führender Null
+    
+        //Uhrzeit in das HTML-Element einfügen (ohne zusätzliche Leerzeichen)
         document.getElementById('uhrzeit').innerHTML = `
-          <span class="stunden">${fixedTime.split(':')[0]}</span>:<span class="minuten">${fixedTime.split(':')[1]}</span>:<span class="sekunden">${fixedTime.split(':')[2]}</span>
+          <span class="stunden">${stunden}</span>:<span class="minuten">${minuten}</span>:<span class="sekunden">${sekunden}</span>
         `;
       }
-
-      // Zeit sofort anzeigen und dann jede Sekunde aktualisieren (Simulation)
+    
+      // Zeit sofort anzeigen und dann jede Sekunde aktualisieren
       updateUhrzeit();
       setInterval(updateUhrzeit, 1000);
     </script>

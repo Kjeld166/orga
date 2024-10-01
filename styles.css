@@ -15,8 +15,8 @@
   --secondary-color: #a1a1a1;
   --text-color: #dfdfdf;
   --link-color: rgb(132, 0, 255);
-  --background-color: #000000;
-  --uhr-border-color: #ffffff;
+  --background-color: #0c0202;
+  --uhr-border-color: #c20505;
 }
 
 
@@ -26,6 +26,8 @@ html {
   height: 100%; 
   padding: 0;
   background-color: var(--background-color);
+  border: none;
+  padding: 0;
 }
 
 header {
@@ -33,13 +35,13 @@ header {
   position: fixed;
   top: 0px;
   left: -2px;
-  
 }
 
 body {
   font-family: Arial, sans-serif;
   margin-top: 0px;
   position: relative; 
+  overflow-x: hidden;
 }
 
 footer {
@@ -62,38 +64,60 @@ h1 {
   top:0px;
   margin: 0px;
 }
+
+table {
+  color: green;
+}
 /* Uhr */ 
 
-  #uhrzeit {
-    margin-top: 40px;
-    font-family: 'DS-Digital', sans-serif;
-    font-size: 85px;
-    color: var(--primary-color);
-    border: solid;
-    border-color: var(--uhr-border-color);
-    border: 30px;
-    text-align: center;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
+#uhrzeit {
+  margin: 0px auto; /* Kombiniert margin-top und horizontale Zentrierung */
+  font-family: 'DS-Digital', sans-serif;
+  font-size: 100px;
+  color: var(--primary-color);
+  
+  border: 2px solid;
+  border-color: var(--uhr-border-color, black);
+  
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  align-items: baseline;
+  position: relative;
+  top: 40px;
+  
+  width: 100%; 
+  max-width: 480px; 
+  min-width: 300px; 
+  box-sizing: border-box;
+  height: 200px;
   }
 
-    .stunden {
-      color: green;
-    }
+  .stunden {
+    display: flex;
+    justify-content: flex-end;
+    height: 80px;
+    width: 95px; 
+    /* border: 2px solid;
+    border-color: var(--uhr-border-color); */
+  }
 
-    .minuten {
-      color: red;
-    }
+  .minuten {
+    display: flex;
+    justify-content: flex-end;
+    height: 80px;
+    width: 95px; 
+    /* border: 2px solid;
+    border-color: var(--uhr-border-color); */
+  }
 
-    .sekunden {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      font-size: 50%;
-      border:solid;
-      border-color: var(--uhr-border-color);
-    }
+  .sekunden {
+    font-size: 50%;
+    width: 50px;
+    /* border: 2px solid;
+    border-color: var(--uhr-border-color);
+    */   
+  }
 
 a {
   color: var(--link-color);
