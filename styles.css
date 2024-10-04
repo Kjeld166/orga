@@ -5,18 +5,20 @@
   src:  url('fonts/DS-DIGIT.TTF') format('truetype'),
         url('fonts/DS-Digital-BoldItalic.woff2') format('woff2'),
         url('fonts/DS-Digital-BoldItalic.woff') format('woff');
+  font-size: '14 Segment LED Regular';
+  src: url('14 Segment LED Regular') format('truetype');
 }
 
 
 /* Farben Übersicht */
 
 :root {
-  --primary-color: #d6d6d6;
+  --primary-color: #DED8F4;
   --secondary-color: #a1a1a1;
   --text-color: #dfdfdf;
-  --link-color: rgb(132, 0, 255);
-  --background-color: #0c0202;
-  --uhr-border-color: #c20505;
+  --link-color: #A143C8;
+  --background-color: #04030E;
+  --uhr-border-color: #ff0000;
 }
 
 
@@ -71,7 +73,7 @@ table {
 /* Uhr */ 
 
 #uhrzeit {
-  margin: 0px auto; /* Kombiniert margin-top und horizontale Zentrierung */
+  margin: 0px auto;
   font-family: 'DS-Digital', sans-serif;
   font-size: 100px;
   color: var(--primary-color);
@@ -83,11 +85,11 @@ table {
   justify-content: center; 
   align-items: center;
   align-items: baseline;
-  position: relative;
+  position: absolute;
   top: 40px;
   
   width: 100%; 
-  max-width: 480px; 
+  max-width: 320px; 
   min-width: 300px; 
   box-sizing: border-box;
   height: 200px;
