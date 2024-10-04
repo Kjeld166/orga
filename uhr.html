@@ -21,7 +21,9 @@
     </header>
 
     <main>
-      <p class="Uhr" id="uhrzeit">Laedt...</p>
+      <div class="container">
+        <p class="Uhr" id="uhrzeit">Laedt...</p>
+      </div>
     </main>
 
     <footer>
@@ -44,7 +46,7 @@
     
       // Zeit sofort anzeigen und dann jede Sekunde aktualisieren
       updateUhrzeit();
-      setInterval(updateUhrzeit, 1000);
+      setInterval(updateUhrzeit, 100);
     </script>
   </body>
 </html>
