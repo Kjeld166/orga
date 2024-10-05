@@ -18,7 +18,7 @@
   --text-color: #dfdfdf;
   --link-color: #A143C8;
   --background-color: #04030E;
-  --uhr-border-color: #ff0000;
+  --uhr-border-color: #AB9BE2;
 }
 
 
@@ -89,28 +89,68 @@ table {
   box-sizing: border-box;
 }
 
-#uhrzeit {
-  margin: 0px auto;
-  font-family: 'DS-Digital';
-  font-size: 100px;
-  color: var(--primary-color);
-  
-  border: 2px solid;
-  border-color: var(--uhr-border-color, black);
-  
-  display: flex; 
-  justify-content: center; 
-  align-items: center;
-  align-items: baseline;
-  position: absolute;
-  top: 0px;
-  
-  width: 100%; 
-  max-width: 310px; 
-  min-width: 290px; 
-  box-sizing: border-box;
-  height: 100px;
+  .sektor1 {
+    border: 2px solid  var(--uhr-border-color, red);;
+    border-radius: 15px;
+
+    width: 320px;
+    height: 150px;
+    margin: 0px;
+
+    box-sizing: border-box;
+    flex-direction: column;
+
+    position: absolute;
+    top: 0px;
   }
+
+    #uhrzeit {
+      margin: 0px auto;
+      font-family: 'DS-Digital', sans-serif;
+      font-size: 105px;
+      color: var(--primary-color);
+      
+      /* border: 2px solid; 
+      border-color: var(--uhr-border-color, red); 
+      border-radius: 15px; */
+    
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      align-items: baseline;
+      
+      width: 100%; 
+      max-width: 320px; 
+      min-width: 290px; 
+      height: 100px;
+      box-sizing: border-box;
+    }
+
+    .Datum {
+      font-size: 50px;
+      position: absolute;
+      margin: 0px;
+      left: 0px;
+      top: 90px;
+    }
+
+    .Tag {
+      font-size: 50px;
+      position: absolute;
+      right: 0px;
+      margin: 0px;
+    } 
+
+    .labelTag {
+      position: absolute;
+      margin: 0px;
+    }
+
+    .labelMonat {
+      position: absolute;
+      margin: 0px;
+    }
+
 
   .stunden {
     display: flex;
