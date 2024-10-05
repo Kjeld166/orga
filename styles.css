@@ -112,7 +112,7 @@ table {
 
     #uhrzeit {
       margin: 0px auto;
-      font-family: Lucida Console;
+      font-family: 'Lucida Console',serif;
       font-size: 80px;
       color: var(--primary-color);
       
