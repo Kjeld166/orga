@@ -16,13 +16,20 @@
     <main>
       <div class="container">
         <div class="sektor1">
-          <p class="Uhr" id="uhrzeit">Laedt...</p>
+          <p id="uhrzeit">
+            <span class="stunden">12</span>
+              <span class="doppelpunkte">:</span>
+            <span class="minuten">34</span>
+              <span class="doppelpunkte">:</span>
+            <span class="sekunden">56</span>
+          </p>          
           <p class="Datum">22.08.</p>
           <p class="Tag">Mon.</p>
           <p class="labelTag">Tag</p>
           <p class="labelMonat">Monat</p>
         </div>
       </div>
+
         <p class="footer">&copy; 2024 Meine Webseite</p>
       </div>
     </main>
@@ -33,17 +40,19 @@
     
     <script>
       function updateUhrzeit() {
-        // Aktuelle Uhrzeit holen
-        const now = new Date();
-        let stunden = now.getHours().toString().padStart(2, '0'); // Stunden mit führender Null
-        let minuten = now.getMinutes().toString().padStart(2, '0'); // Minuten mit führender Null
-        let sekunden = now.getSeconds().toString().padStart(2, '0'); // Sekunden mit führender Null
-    
-        //Uhrzeit in das HTML-Element einfügen (ohne zusätzliche Leerzeichen)
-        document.getElementById('uhrzeit').innerHTML = `
-          <span class="stunden">${stunden}</span>:<span class="minuten">${minuten}</span>:<span class="sekunden">${sekunden}</span>
-        `;
-      }
+  const now = new Date();
+  let stunden = now.getHours().toString().padStart(2, '0');
+  let minuten = now.getMinutes().toString().padStart(2, '0');
+  let sekunden = now.getSeconds().toString().padStart(2, '0');
+
+  // Uhrzeit in das HTML-Element einfügen
+  document.getElementById('uhrzeit').innerHTML = `
+    <span class="stunden">${stunden}</span><span class="doppelpunkte">:</span>
+    <span class="minuten">${minuten}</span><span class="doppelpunkte">:</span>
+    <span class="sekunden">${sekunden}</span>
+  `;
+}
+
     
       // Zeit sofort anzeigen und dann jede Sekunde aktualisieren
       updateUhrzeit();

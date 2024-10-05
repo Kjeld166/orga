@@ -78,11 +78,12 @@ table {
   position: relative;
   top: 0px;
   left: -8px;
-  border: 2px solid;
-  border-color: var(--uhr-border-color);
   width: 320px;
   height: 480px;
 
+  border: 5px solid;
+  border-color: red;
+ 
   display: flex;
   justify-content: center; 
   align-items: center; 
@@ -92,6 +93,7 @@ table {
   .sektor1 {
     border: 2px solid  var(--uhr-border-color, red);;
     border-radius: 15px;
+    
 
     width: 320px;
     height: 150px;
@@ -101,13 +103,17 @@ table {
     flex-direction: column;
 
     position: absolute;
-    top: 0px;
+    top: 5px;
+  }
+
+  .Datum, .Tag, .labelTag, .labelMonat {
+    color: var(--primary-color);
   }
 
     #uhrzeit {
       margin: 0px auto;
-      font-family: 'DS-Digital', sans-serif;
-      font-size: 90px;
+      font-family: Lucida Console;
+      font-size: 80px;
       color: var(--primary-color);
       
       /* border: 2px solid; 
@@ -122,16 +128,24 @@ table {
       width: 100%; 
       max-width: 320px; 
       min-width: 290px; 
-      height: 100px;
       box-sizing: border-box;
     }
+
+    .doppelpunkte {
+      font-size: 50px; /* Beispiel: Mach die Doppelpunkte kleiner */
+      color: var(--secondary-color); /* Beispiel: Ändere die Farbe */
+      padding: 0 5px; /* Beispiel: Füge Platz um die Doppelpunkte hinzu */
+      width: 20px;
+    }
+    
 
     .Datum {
       font-size: 50px;
       position: absolute;
       margin: 0px;
       left: 0px;
-      top: 90px;
+      top: 80px;
+      left: 15px;
     }
 
     .Tag {
@@ -141,14 +155,19 @@ table {
       margin: 0px;
     } 
 
-    .labelTag {
+    .labelTag, .labelMonat {
+      font-size: 10px;
       position: absolute;
       margin: 0px;
+      top: 128px;
+    }
+
+    .labelTag {
+      left: 30px;
     }
 
     .labelMonat {
-      position: absolute;
-      margin: 0px;
+      left: 90px;
     }
 
 
