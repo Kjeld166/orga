@@ -80,8 +80,6 @@ table {
   left: -8px;
   width: 320px;
   height: 480px;
-
-  
  
   display: flex;
   justify-content: center; 
@@ -142,7 +140,6 @@ table {
       font-size: 50px;
       position: absolute;
       margin: 0px;
-      left: 0px;
       top: 80px;
       left: 15px;
     }
@@ -150,7 +147,7 @@ table {
     .Tag {
       font-size: 50px;
       position: absolute;
-      right: 0px;
+      right: 25px;
       margin: 0px;
     } 
 
