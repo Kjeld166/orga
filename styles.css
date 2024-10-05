@@ -74,20 +74,24 @@ table {
 
 /* Uhr */ 
 
-
 .container {
   position: relative;
   top: 0px;
   left: -8px;
   border: 2px solid;
   border-color: var(--uhr-border-color);
-  width: 315px;
-  height: 475px;
+  width: 320px;
+  height: 480px;
+
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  box-sizing: border-box;
 }
 
 #uhrzeit {
   margin: 0px auto;
-  font-family: 'DS-Digital', sans-serif;
+  font-family: 'DS-Digital';
   font-size: 100px;
   color: var(--primary-color);
   
@@ -99,7 +103,7 @@ table {
   align-items: center;
   align-items: baseline;
   position: absolute;
-  top: 40px;
+  top: 0px;
   
   width: 100%; 
   max-width: 310px; 
@@ -142,13 +146,12 @@ p {
  color: var(--text-color);
 }
 
-.icon {
+/* .icon {
   position: absolute;
   top: 5px;  
   left: -2px; 
   width: 32px; 
   height: 32px;
-  
-}
+} */
 
 
