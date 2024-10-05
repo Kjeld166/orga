@@ -112,7 +112,7 @@ table {
 
     #uhrzeit {
       margin: 0px auto;
-      font-family: 'Lucida Console',serif;
+      font-family: 'Lucida Console', monospace;
       font-size: 80px;
       color: var(--primary-color);
       
@@ -132,9 +132,9 @@ table {
     }
 
     .doppelpunkte {
-      font-size: 50px; /* Beispiel: Mach die Doppelpunkte kleiner */
-      color: var(--secondary-color); /* Beispiel: Ändere die Farbe */
-      padding: 0 5px; /* Beispiel: Füge Platz um die Doppelpunkte hinzu */
+      font-size: 50px;
+      color: var(--secondary-color); 
+      padding: 0 5px; 
       width: 20px;
     }
     
@@ -163,11 +163,11 @@ table {
     }
 
     .labelTag {
-      left: 30px;
+      left: 35px;
     }
 
     .labelMonat {
-      left: 90px;
+      left: 100px;
     }
 
 
