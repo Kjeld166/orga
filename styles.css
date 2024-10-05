@@ -75,7 +75,7 @@ table {
 #uhrzeit {
   margin: 0px auto;
   font-family: 'DS-Digital', sans-serif;
-  font-size: 90px;
+  font-size: 100px;
   color: var(--primary-color);
   
   border: 2px solid;
@@ -92,7 +92,7 @@ table {
   max-width: 310px; 
   min-width: 290px; 
   box-sizing: border-box;
-  height: 200px;
+  height: 100px;
   }
 
   .stunden {
