@@ -28,51 +28,77 @@
           <p class="labelTag">Tag</p>
           <p class="labelMonat">Monat</p>
         </div>
-      </div>
-
-        <p class="footer">&copy; 2024 Meine Webseite</p>
+        <div class="sektor2">
+          <p class="Innen">Innen</p>
+          <div class="luftfeuchtigkeit">
+            <p class="luftfeuchtigkeitZahl">52</p>
+            <p class="lableProzentzeichen">%</p></div>
+          <div class="Temperatur">
+            <p class="hauptTemperatur">22</p>
+            <p class="nebenTemperatur">.5</p>
+            <p class="lableGradCelsius">°C</p>
+          </div>
+        </div>
+        <div class="sektor3">
+          <p class="Aussen">Aussen</p>
+          <div class="luftfeuchtigkeit2">
+            <p class="luftfeuchtigkeitZahl2">52</p>
+            <p class="lableProzentzeichen2">%</p></div>
+          <div class="Temperatur2">
+            <p class="hauptTemperatur2">22</p>
+            <p class="nebenTemperatur2">.5</p>
+            <p class="lableGradCelsius2">°C</p>
+          </div>
+        </div>
+        <div class="sektor4">
+          <!-- Bild -->
+           <p class="Sonnenaufgang">Sonnenaufgang</p>
+           <p class="Sonnenuntergang">Sonnenuntergang</p>
+        </div>
       </div>
     </main>
 
     <footer>
-      
     </footer>
     
     <script>
+
       function updateUhrzeit() {
-  const now = new Date();
-  let stunden = now.getHours().toString().padStart(2, '0');
-  let minuten = now.getMinutes().toString().padStart(2, '0');
-  let sekunden = now.getSeconds().toString().padStart(2, '0');
+        const now = new Date();
+        let stunden = now.getHours().toString().padStart(2, '0');
+        let minuten = now.getMinutes().toString().padStart(2, '0');
+        let sekunden = now.getSeconds().toString().padStart(2, '0');
 
-  // Uhrzeit in das HTML-Element einfügen
-  document.getElementById('uhrzeit').innerHTML = `
-    <span class="stunden">${stunden}</span><span class="doppelpunkte">:</span>
-    <span class="minuten">${minuten}</span><span class="doppelpunkte">:</span>
-    <span class="sekunden">${sekunden}</span>
-  `;
-}
+        // Uhrzeit in das HTML-Element einfügen
+        document.getElementById('uhrzeit').innerHTML = `
+          <span class="stunden">${stunden}</span><span class="doppelpunkte">:</span>
+          <span class="minuten">${minuten}</span><span class="doppelpunkte">:</span>
+          <span class="sekunden">${sekunden}</span>
+        `;
+      }
 
 
-function updateDatum() {
-  const now = new Date();
-  let tag = now.getDate().toString().padStart(2, '0'); // Tag als Zahl
-  let monat = (now.getMonth() + 1).toString().padStart(2, '0'); // Monat als Zahl (0-basiert)
-  let wochenTag = now.toLocaleDateString('de-DE', { weekday: 'short' }); // Wochentag auf die ersten 3 Buchstaben
+      function updateDatum() {
+        const now = new Date();
+        let tag = now.getDate().toString().padStart(2, '0'); // Tag als Zahl
+        let monat = (now.getMonth() + 1).toString().padStart(2, '0'); // Monat als Zahl
+        let wochenTag = now.toLocaleDateString('de-DE', { weekday: 'short' }); // Wochentag auf die ersten 3 Buchstaben
 
-  // Datum in das HTML-Element einfügen
-  document.querySelector('.Datum').innerHTML = `${tag}.${monat}.`; // z.B. "22.08."
-  document.querySelector('.Tag').innerHTML = wochenTag; // z.B. "Mon."
-}
+        // Datum in das HTML-Element einfügen
+        document.querySelector('.Datum').innerHTML = `${tag}.${monat}.`;
+        let options = { weekday: 'short' };
+        let wochentagLang = now.toLocaleDateString('de-DE', options).slice(0, 3); // Erste drei Buchstaben
+        document.querySelector('.Tag').textContent = `${wochentagLang}.`;
+      }
 
-// Zeit und Datum sofort anzeigen und dann jede Sekunde aktualisieren
-updateUhrzeit();
-updateDatum();
-setInterval(() => {
-  updateUhrzeit();
-  updateDatum();
-}, 100); // Aktualisiert jede Sekunde
-    
+
+      updateUhrzeit();
+      updateDatum();
+      setInterval(() => {
+        updateUhrzeit();
+        updateDatum();
+      }, 500);
+          
      
     </script>
   </body>
