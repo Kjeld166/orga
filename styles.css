@@ -221,7 +221,7 @@ p {
     border-radius: 15px;
 
     width: 320px;
-    height: 100px;
+    height: 90px;
     margin: 0px;
 
     box-sizing: border-box;
@@ -247,7 +247,7 @@ p {
       width: 80px;
       position: absolute;
       left: 20px;
-      top: 15px;
+      top: 8px;
       width: 100px;
     }
 
@@ -264,7 +264,7 @@ p {
       margin: 0px;
       position: absolute;
       right: 20px;
-      top: 15px;
+      top: 8px;
       width: 105px;
     }
     
@@ -297,14 +297,14 @@ p {
     border-radius: 15px;
 
     width: 320px;
-    height: 100px;
+    height: 90px;
     margin: 0px;
 
     box-sizing: border-box;
     flex-direction: column;
 
     position: absolute;
-    top: 254px;
+    top: 244px;
     left: 0px;
   }
 
@@ -316,11 +316,6 @@ p {
       align-items: baseline;
       margin: 0px;
       font-weight: 900;
-    }
-
-    .AusssenIMG {
-      position: absolute;
-      left: 140px;
     }
 
     .luftfeuchtigkeit2 {
@@ -386,15 +381,25 @@ p {
     flex-direction: column;
 
     position: absolute;
-    top: 356px;
+    top: 336px;
     left: 0px;
   }
     
+  .balken {
+    width: 1px;    
+    height: 110px; 
+    background-color: var(--primary-color);  
+    position: absolute;
+    top: -5px;
+    left: 103px;
+  }
+
   .sonnenaufgang {
     position: absolute;
     bottom: 15px;
     left: 110px;
     font-size: 20px;
+    width: 100px;
   }
 
     .sonnenaufgangImg {
@@ -408,6 +413,7 @@ p {
     bottom: 15px;
     left: 220px;
     font-size: 20px;
+    width: 100px;
   }
 
     .sonnenuntergangImg {
