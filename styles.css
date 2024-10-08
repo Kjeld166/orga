@@ -15,7 +15,7 @@
   --secondary-color: #a1a1a1;
   --text-color: #DED8F4;
   --link-color: #A143C8;
-  --background-color: #04030E;
+  --background-color: #04030e;
   --uhr-border-color: #AB9BE2;
 }
 
@@ -361,7 +361,7 @@ p {
       }
 
       .nebenTemperatur2 {
-        font-size: 45%; /* Die Schriftgröße ist 50% der übergeordneten */
+        font-size: 45%; 
         color: var(--text-color);
         margin: 0px;
         position: absolute;
@@ -374,25 +374,41 @@ p {
     border-radius: 15px;
 
     width: 320px;
-    height: 100px;
+    height: 110px;
     margin: 0px;
 
     box-sizing: border-box;
     flex-direction: column;
 
     position: absolute;
-    top: 360px;
+    top: 356px;
     left: 0px;
   }
     
   .Sonnenaufgang {
-    
+    position: absolute;
+    bottom: 15px;
+    left: 110px;
+    font-size: 16px;
   }
 
   .Sonnenuntergang {
-
+    position: absolute;
+    bottom: 15px;
+    left: 220px;
+    font-size: 16px;
   }
 
+/* Mond*/
+
+.mondphase {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  
+}
+  
+  
 
 
 /* .icon {

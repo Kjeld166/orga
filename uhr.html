@@ -9,9 +9,7 @@
   </head>
 
   <body>
-    <header>
-      
-    </header>
+    <header></header>
 
     <main>
       <div class="container">
@@ -28,6 +26,7 @@
           <p class="labelTag">Tag</p>
           <p class="labelMonat">Monat</p>
         </div>
+
         <div class="sektor2">
           <p class="Innen">Innen</p>
           <div class="luftfeuchtigkeit">
@@ -39,6 +38,7 @@
             <p class="lableGradCelsius">°C</p>
           </div>
         </div>
+
         <div class="sektor3">
           <p class="Aussen">Aussen</p>
           <div class="luftfeuchtigkeit2">
@@ -50,19 +50,27 @@
             <p class="lableGradCelsius2">°C</p>
           </div>
         </div>
+
         <div class="sektor4">
-          <!-- Bild -->
-           <p class="Sonnenaufgang">Sonnenaufgang</p>
-           <p class="Sonnenuntergang">Sonnenuntergang</p>
+          <p class="Sonnenaufgang">07:09 Uhr</p>
+          <p class="Sonnenuntergang">18:38 Uhr</p>
+          <div class="mondphase">
+            <a target="blank"
+              style="text-decoration:none;"
+              href="https://moonphase.guide/">
+              <img src="https://moonphase.guide/module/MVXo5UC9IVDNNalQvTXBRUHo2YTVCYjRTR2hGbnpHUlFidk1OV2t5R21hNmtleHFHOEJoU3I3TTBtbWp5cStUS2dVYnJLMmIvUmR2NHhqbmxtWk5rdEE9PQ.png" />
+            </a>
+          </div>
         </div>
       </div>
+
+      <!-- Mondphase -->
+      
     </main>
 
-    <footer>
-    </footer>
-    
-    <script>
+    <footer></footer>
 
+    <script>
       function updateUhrzeit() {
         const now = new Date();
         let stunden = now.getHours().toString().padStart(2, '0');
@@ -77,20 +85,17 @@
         `;
       }
 
-
       function updateDatum() {
         const now = new Date();
-        let tag = now.getDate().toString().padStart(2, '0'); // Tag als Zahl
-        let monat = (now.getMonth() + 1).toString().padStart(2, '0'); // Monat als Zahl
-        let wochenTag = now.toLocaleDateString('de-DE', { weekday: 'short' }); // Wochentag auf die ersten 3 Buchstaben
+        let tag = now.getDate().toString().padStart(2, '0');
+        let monat = (now.getMonth() + 1).toString().padStart(2, '0');
+        let wochenTag = now.toLocaleDateString('de-DE', { weekday: 'short' });
 
-        // Datum in das HTML-Element einfügen
         document.querySelector('.Datum').innerHTML = `${tag}.${monat}.`;
         let options = { weekday: 'short' };
-        let wochentagLang = now.toLocaleDateString('de-DE', options).slice(0, 3); // Erste drei Buchstaben
+        let wochentagLang = now.toLocaleDateString('de-DE', options).slice(0, 3);
         document.querySelector('.Tag').textContent = `${wochentagLang}.`;
       }
-
 
       updateUhrzeit();
       updateDatum();
@@ -98,8 +103,6 @@
         updateUhrzeit();
         updateDatum();
       }, 500);
-          
-     
     </script>
   </body>
 </html>
