@@ -385,14 +385,14 @@ p {
     left: 0px;
   }
     
-  .Sonnenaufgang {
+  .sonnenaufgang {
     position: absolute;
     bottom: 15px;
     left: 110px;
     font-size: 16px;
   }
 
-  .Sonnenuntergang {
+  .sonnenuntergang {
     position: absolute;
     bottom: 15px;
     left: 220px;
@@ -405,7 +405,6 @@ p {
   position: absolute;
   top: 3px;
   left: 3px;
-  
 }
   
   
