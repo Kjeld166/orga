@@ -400,9 +400,9 @@ p {
     transition:background-color 0.2s;
   }
 
-  .buttonSektor4:hover {
+  /* .buttonSektor4:hover {
     background-color: #04030e73;
-  }
+  } */
 
   .buttonSektor4:active {
     background-color: var(--background-color);
