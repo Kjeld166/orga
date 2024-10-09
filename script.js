@@ -1,3 +1,73 @@
+async function getWeather(lat, lon) {
+    const apiKey = '88373dba9cd4cd7dafe589e396f1d15f'; // Dein API-Schlüssel
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=de&appid=${apiKey}`;
+
+    try {
+        const response = await fetch(url);
+        
+        // Überprüfen, ob die API-Antwort erfolgreich ist
+        if (!response.ok) {
+            throw new Error(`HTTP-Fehler! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Debugging - Überprüfen der empfangenen Daten
+        console.log(data);
+
+        // Datenverarbeitung wie bisher
+        const tempIn2h = data.list[0].main.temp;
+        const tempIn5h = data.list[2].main.temp;
+        const tempIn9h = data.list[4].main.temp;
+
+        // Daten in HTML-Elemente einfügen
+        document.querySelector('.In2h .hauptTemperaturIn').textContent = Math.floor(tempIn2h);
+        document.querySelector('.In2h .nebenTemperaturIn').textContent = (tempIn2h % 1).toFixed(1).split('.')[1];
+
+        document.querySelector('.In5h .hauptTemperaturIn').textContent = Math.floor(tempIn5h);
+        document.querySelector('.In5h .nebenTemperaturIn').textContent = (tempIn5h % 1).toFixed(1).split('.')[1];
+
+        document.querySelector('.In9h .hauptTemperaturIn').textContent = Math.floor(tempIn9h);
+        document.querySelector('.In9h .nebenTemperaturIn').textContent = (tempIn9h % 1).toFixed(1).split('.')[1];
+    } catch (error) {
+        console.error('Fehler beim Abrufen der Wetterdaten:', error); // Ausgabe des Fehlers in der Konsole
+    }
+}
+
+
+console.log('JavaScript wird geladen');
+
+
+window.onload = function() {
+    const latitude = 51.1657;
+    const longitude = 10.4515;
+
+    getWeather(latitude, longitude);
+};
+
+
+// Beispielkoordinaten für Deutschland
+window.onload = function() {
+    const latitude = 51.1657;
+    const longitude = 10.4515;
+
+    getWeather(latitude, longitude);
+};
+
+
+// Koordinaten für die Wetterdaten (Beispiel: 51.1657 N, 10.4515 E für Deutschland)
+window.onload = function() {
+    const latitude = 51.1657;
+    const longitude = 10.4515;
+
+    // Wetterdaten für die nächste Stunde abrufen und aktualisieren
+    getWeather(latitude, longitude);
+};
+
+
+
+
+
 function updateUhrzeit() {
     const now = new Date();
     let stunden = now.getHours().toString().padStart(2, '0');
@@ -70,3 +140,7 @@ document.getElementById('toggleBtn').addEventListener('click', function() {
     currentDiv = 1;
   }
 });
+
+
+
+
