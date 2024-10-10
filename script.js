@@ -1,38 +1,63 @@
-async function getWeather(lat, lon) {
-    const apiKey = '88373dba9cd4cd7dafe589e396f1d15f'; // Dein API-Schlüssel
-    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=de&appid=${apiKey}`;
+async function getWeather() {
+  // URL für Dresden im JSON-Format
+  const url = 'https://wttr.in/Dresden?format=j1';
+  
+  try {
+      const response = await fetch(url);
+      const data = await response.json();
 
-    try {
-        const response = await fetch(url);
-        
-        // Überprüfen, ob die API-Antwort erfolgreich ist
-        if (!response.ok) {
-            throw new Error(`HTTP-Fehler! Status: ${response.status}`);
-        }
+      // Daten in der Konsole ausgeben, um die Struktur zu prüfen
+      console.log(data);
 
-        const data = await response.json();
+      // Sicherstellen, dass die aktuelle Wetterbedingung vorhanden ist
+      if (data.current_condition && data.current_condition[0]) {
+          const currentCondition = data.current_condition[0];
+          const temp = currentCondition.temp_C; // Temperatur in Celsius
 
-        // Debugging - Überprüfen der empfangenen Daten
-        console.log(data);
+          // Ausgabe in die Konsole
+          console.log(`Aktuelle Temperatur: ${temp}°C`);
 
-        // Datenverarbeitung wie bisher
-        const tempIn2h = data.list[0].main.temp;
-        const tempIn5h = data.list[2].main.temp;
-        const tempIn9h = data.list[4].main.temp;
+          // Einfügen in HTML
+          document.querySelector('.hauptTemperaturIn').textContent = temp;
+      } else {
+          console.error("Aktuelle Wetterdaten fehlen oder sind nicht zugänglich.");
+      }
 
-        // Daten in HTML-Elemente einfügen
-        document.querySelector('.In2h .hauptTemperaturIn').textContent = Math.floor(tempIn2h);
-        document.querySelector('.In2h .nebenTemperaturIn').textContent = (tempIn2h % 1).toFixed(1).split('.')[1];
+      // Sicherstellen, dass die Wettervorhersage vorhanden ist
+      if (data.weather && data.weather[0] && data.weather[0].hourly) {
+          const weatherIn2h = data.weather[0].hourly[2]?.tempC || 'N/A'; // Temperatur in 2h
+          const weatherIn4h = data.weather[0].hourly[4]?.tempC || 'N/A'; // Temperatur in 5h
+          const weatherIn6h = data.weather[0].hourly[6]?.tempC || 'N/A'; // Temperatur in 6h
 
-        document.querySelector('.In5h .hauptTemperaturIn').textContent = Math.floor(tempIn5h);
-        document.querySelector('.In5h .nebenTemperaturIn').textContent = (tempIn5h % 1).toFixed(1).split('.')[1];
+          // Ausgabe in die Konsole
+          console.log(`Temperatur in 2 Stunden: ${weatherIn2h}°C`);
+          console.log(`Temperatur in 4 Stunden: ${weatherIn4h}°C`);
+          console.log(`Temperatur in 6 Stunden: ${weatherIn6h}°C`);
 
-        document.querySelector('.In9h .hauptTemperaturIn').textContent = Math.floor(tempIn9h);
-        document.querySelector('.In9h .nebenTemperaturIn').textContent = (tempIn9h % 1).toFixed(1).split('.')[1];
-    } catch (error) {
-        console.error('Fehler beim Abrufen der Wetterdaten:', error); // Ausgabe des Fehlers in der Konsole
-    }
+          // Einfügen in HTML
+          document.querySelector('.In2h .hauptTemperaturIn').textContent = weatherIn2h;
+          document.querySelector('.In4h .hauptTemperaturIn').textContent = weatherIn4h;
+          document.querySelector('.In6h .hauptTemperaturIn').textContent = weatherIn6h;
+      } else {
+          console.error("Vorhersagedaten fehlen oder sind nicht zugänglich.");
+      }
+
+  } catch (error) {
+      console.error('Fehler beim Abrufen der Wetterdaten:', error);
+  }
+  console.log(data);
 }
+
+getWeather();
+
+
+
+
+
+// Wetter beim Laden der Seite abrufen
+window.onload = function() {
+  getWeather();
+};
 
 
 console.log('JavaScript wird geladen');
