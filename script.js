@@ -1,54 +1,71 @@
+// API-URL für Dresden
+const apiKey = '88373dba9cd4cd7dafe589e396f1d15f'; // Ersetze DEIN_API_KEY mit deinem OpenWeather API-Schlüssel
+const city = 'Dresden';
+const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+
 async function getWeather() {
-  // URL für Dresden im JSON-Format
-  const url = 'https://wttr.in/Dresden?format=j1';
-  
   try {
-      const response = await fetch(url);
-      const data = await response.json();
+    const response = await fetch(url);
+    const data = await response.json();
 
-      // Daten in der Konsole ausgeben, um die Struktur zu prüfen
-      console.log(data);
+    // Daten in der Konsole ausgeben, um die Struktur zu prüfen
+    console.log(data);
 
-      // Sicherstellen, dass die aktuelle Wetterbedingung vorhanden ist
-      if (data.current_condition && data.current_condition[0]) {
-          const currentCondition = data.current_condition[0];
-          const temp = currentCondition.temp_C; // Temperatur in Celsius
+    // Sicherstellen, dass die aktuellen Wetterbedingungen vorhanden sind
+    if (data.cod === "200") {
+      // Aktuelle Wetterdaten
+      const currentWeather = data.list[0]; // Aktuelle Wetterdaten (1. Eintrag in der Liste)
+      const temp = currentWeather.main.temp; // Temperatur in Celsius
+      const tempDecimal = (temp % 1).toFixed(1).substring(1); // .2 für Dezimalstelle
+      const iconCode = currentWeather.weather[0].icon; // Icon-Code für das aktuelle Wetter
 
-          // Ausgabe in die Konsole
-          console.log(`Aktuelle Temperatur: ${temp}°C`);
+      // Ausgabe in die Konsole
+      console.log(`Aktuelle Temperatur: ${temp}°C`);
 
-          // Einfügen in HTML
-          document.querySelector('.hauptTemperaturIn').textContent = temp;
-      } else {
-          console.error("Aktuelle Wetterdaten fehlen oder sind nicht zugänglich.");
-      }
+      // Einfügen in HTML
+      document.querySelector('.hauptTemperaturIn').textContent = Math.floor(temp); // Ganzzahlige Temperatur
+      document.querySelector('.nebenTemperaturIn').textContent = tempDecimal; // Dezimalstelle
 
-      // Sicherstellen, dass die Wettervorhersage vorhanden ist
-      if (data.weather && data.weather[0] && data.weather[0].hourly) {
-          const weatherIn2h = data.weather[0].hourly[2]?.tempC || 'N/A'; // Temperatur in 2h
-          const weatherIn4h = data.weather[0].hourly[4]?.tempC || 'N/A'; // Temperatur in 5h
-          const weatherIn6h = data.weather[0].hourly[6]?.tempC || 'N/A'; // Temperatur in 6h
+      // Icon einfügen
+      const weatherIconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+      document.querySelector('.In2h .wetterIcon').src = weatherIconUrl;
 
-          // Ausgabe in die Konsole
-          console.log(`Temperatur in 2 Stunden: ${weatherIn2h}°C`);
-          console.log(`Temperatur in 4 Stunden: ${weatherIn4h}°C`);
-          console.log(`Temperatur in 6 Stunden: ${weatherIn6h}°C`);
+      // Wettervorhersage in 2, 4 und 6 Stunden
+      const weatherIn2h = data.list[1]?.main.temp || 'N/A'; // Temperatur in 2 Stunden
+      const weatherIn4h = data.list[2]?.main.temp || 'N/A'; // Temperatur in 4 Stunden
+      const weatherIn6h = data.list[3]?.main.temp || 'N/A'; // Temperatur in 6 Stunden
 
-          // Einfügen in HTML
-          document.querySelector('.In2h .hauptTemperaturIn').textContent = weatherIn2h;
-          document.querySelector('.In4h .hauptTemperaturIn').textContent = weatherIn4h;
-          document.querySelector('.In6h .hauptTemperaturIn').textContent = weatherIn6h;
-      } else {
-          console.error("Vorhersagedaten fehlen oder sind nicht zugänglich.");
-      }
+      const icon2h = data.list[1]?.weather[0].icon || ''; // Icon-Code für Wetter in 2 Stunden
+      const icon4h = data.list[2]?.weather[0].icon || ''; // Icon-Code für Wetter in 4 Stunden
+      const icon6h = data.list[3]?.weather[0].icon || ''; // Icon-Code für Wetter in 6 Stunden
 
+      // Ausgabe in die Konsole
+      console.log(`Temperatur in 2 Stunden: ${weatherIn2h}°C`);
+      console.log(`Temperatur in 4 Stunden: ${weatherIn4h}°C`);
+      console.log(`Temperatur in 6 Stunden: ${weatherIn6h}°C`);
+
+      // Einfügen in HTML für 2h, 4h und 6h
+      document.querySelector('.In2h .hauptTemperaturIn').textContent = Math.floor(weatherIn2h);
+      document.querySelector('.In2h .nebenTemperaturIn').textContent = (weatherIn2h % 1).toFixed(1).substring(1); // .2 für Dezimalstelle
+      document.querySelector('.In2h .wetterIcon').src = `http://openweathermap.org/img/wn/${icon2h}@2x.png`;
+
+      document.querySelector('.In4h .hauptTemperaturIn').textContent = Math.floor(weatherIn4h);
+      document.querySelector('.In4h .nebenTemperaturIn').textContent = (weatherIn4h % 1).toFixed(1).substring(1); // .2 für Dezimalstelle
+      document.querySelector('.In4h .wetterIcon').src = `http://openweathermap.org/img/wn/${icon4h}@2x.png`;
+
+      document.querySelector('.In6h .hauptTemperaturIn').textContent = Math.floor(weatherIn6h);
+      document.querySelector('.In6h .nebenTemperaturIn').textContent = (weatherIn6h % 1).toFixed(1).substring(1); // .2 für Dezimalstelle
+      document.querySelector('.In6h .wetterIcon').src = `http://openweathermap.org/img/wn/${icon6h}@2x.png`;
+    } else {
+      console.error("Fehler beim Abrufen der Wetterdaten:", data.message);
+    }
   } catch (error) {
-      console.error('Fehler beim Abrufen der Wetterdaten:', error);
+    console.error('Fehler beim Abrufen der Wetterdaten:', error);
   }
-  console.log(data);
 }
 
 getWeather();
+
 
 
 

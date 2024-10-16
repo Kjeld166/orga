@@ -493,6 +493,11 @@ p {
         top: 45px;
       }
 
+      .nebenTemperaturIn {
+        bottom: 4.5px;
+        right: 6px;
+      }
+
       .lableGradCelsiusIn {
         top: 4px;
         right: 6px;
@@ -503,7 +508,6 @@ p {
       bottom: 0px;
       left: 13.5px;
       width: 50px;
-
     }
   
   .In4h {
@@ -516,6 +520,16 @@ p {
     left: 143px;
   }
 
+  .wetterIcon {
+    position: absolute;
+    top: -3px;
+    left: 0px;
+    /* border: 1px solid red; */
+    height: 60px;
+
+  }
+  
+
 /* Mond*/
 
 .mondphase {
@@ -523,7 +537,6 @@ p {
   top: 3px;
   left: 3px;
 }
-  
   
 
 
