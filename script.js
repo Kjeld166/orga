@@ -1,7 +1,7 @@
 // API-URL für Dresden
 const apiKey = '88373dba9cd4cd7dafe589e396f1d15f'; // Ersetze DEIN_API_KEY mit deinem OpenWeather API-Schlüssel
 const city = 'Dresden';
-const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
 
 async function getWeather() {
   try {
